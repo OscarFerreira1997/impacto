@@ -17,7 +17,7 @@ public class Conexion {
           }
           catch(Exception ex) {
               System.out.println("Error de Conexion" + ex.getMessage());
-              return null;
+              return null;//jjj
           }
       }
 
