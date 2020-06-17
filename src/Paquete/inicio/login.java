@@ -6,7 +6,7 @@
 package Paquete.inicio;
 
 import Paquete.basededatos.Conexion;
-import Paquete.menu.principal;
+//import Paquete.menu.principal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -45,7 +45,7 @@ public class login extends javax.swing.JFrame {
         txtpass = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -122,79 +122,79 @@ public class login extends javax.swing.JFrame {
 
     int id_rol = 0;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Connection con;
-        con = Conexion.getConnection();
-        String usuario = txtuser.getText();
-        String pass = DigestUtils.md5Hex(String.valueOf(txtpass.getText()));
-        try {
-            PreparedStatement instruccion_sql;
-            instruccion_sql = (PreparedStatement) con.prepareStatement("select * from usuarios where nombre=? ");
-            instruccion_sql.setString(1, usuario);
-            instruccion_sql.execute();
-            ResultSet r;
-            r = instruccion_sql.executeQuery();
-
-            if (r.next()) {
-                id_rol = r.getInt("Tipos_usua_id_tipous");
-                if (pass.equals(r.getString("password"))) {
-                    JOptionPane.showMessageDialog(this, "Bienvenido " + r.getString("nombre"));
-                    principal p = new principal();
-                    p.setVisible(true);
-
-                    PreparedStatement pp = con.prepareStatement("select Modulos_usuario_id_modulo from modulos_usuario_has_tipos_usua where Tipos_usua_id_tipous=?");
-                    pp.setInt(1, id_rol);
-                    ResultSet rr = pp.executeQuery();
-                    p.mcliente.setEnabled(false);
-                    p.mproducto.setEnabled(false);
-                    p.mmarca.setEnabled(false);
-                    p.mproveedor.setEnabled(false);
-                    p.mventa.setEnabled(false);
-                    p.mcompra.setEnabled(false);
-                    p.mcuenta.setEnabled(false);
-                    p.mcaja.setEnabled(false);
-                    p.mempresa.setEnabled(false);
-                    p.mreporte.setEnabled(false);
-                    while (rr.next()) {
-                        int mm = rr.getInt("Modulos_usuario_id_modulo");
-                        if (mm == 1) {
-                            p.mcliente.setEnabled(true);
-                        }
-                        if (mm == 2) {
-                            p.mproducto.setEnabled(true);
-                        }
-                        if (mm == 3) {
-                            p.mmarca.setEnabled(true);
-                        }
-                        if (mm == 4) {
-                            p.mproveedor.setEnabled(true);
-                        }
-                        if (mm == 5) {
-                            p.mventa.setEnabled(true);
-                        }
-                        if (mm == 6) {
-                            p.mcompra.setEnabled(true);
-
-                        }
-                        if (mm == 7) {
-                            p.mcuenta.setEnabled(true);
-                        }
-                        if (mm == 8) {
-                            p.mcaja.setEnabled(true);
-                        }
-                        if (mm == 9) {
-                            p.mempresa.setEnabled(true);
-                        }
-                        if (mm == 10) {
-                            p.mreporte.setEnabled(true);
-                        }
-                    }
-                    p.jsaludo.setText(r.getString("nombre"));
-                }
-            }
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+//        Connection con;
+//        con = Conexion.getConnection();
+//        String usuario = txtuser.getText();
+//        String pass = DigestUtils.md5Hex(String.valueOf(txtpass.getText()));
+//        try {
+//            PreparedStatement instruccion_sql;
+//            instruccion_sql = (PreparedStatement) con.prepareStatement("select * from usuarios where nombre=? ");
+//            instruccion_sql.setString(1, usuario);
+//            instruccion_sql.execute();
+//            ResultSet r;
+//            r = instruccion_sql.executeQuery();
+//
+//            if (r.next()) {
+//                id_rol = r.getInt("Tipos_usua_id_tipous");
+//                if (pass.equals(r.getString("password"))) {
+//                    JOptionPane.showMessageDialog(this, "Bienvenido " + r.getString("nombre"));
+//                    principal p = new principal();
+//                    p.setVisible(true);
+//
+//                    PreparedStatement pp = con.prepareStatement("select Modulos_usuario_id_modulo from modulos_usuario_has_tipos_usua where Tipos_usua_id_tipous=?");
+//                    pp.setInt(1, id_rol);
+//                    ResultSet rr = pp.executeQuery();
+//                    p.mcliente.setEnabled(false);
+//                    p.mproducto.setEnabled(false);
+//                    p.mmarca.setEnabled(false);
+//                    p.mproveedor.setEnabled(false);
+//                    p.mventa.setEnabled(false);
+//                    p.mcompra.setEnabled(false);
+//                    p.mcuenta.setEnabled(false);
+//                    p.mcaja.setEnabled(false);
+//                    p.mempresa.setEnabled(false);
+//                    p.mreporte.setEnabled(false);
+//                    while (rr.next()) {
+//                        int mm = rr.getInt("Modulos_usuario_id_modulo");
+//                        if (mm == 1) {
+//                            p.mcliente.setEnabled(true);
+//                        }
+//                        if (mm == 2) {
+//                            p.mproducto.setEnabled(true);
+//                        }
+//                        if (mm == 3) {
+//                            p.mmarca.setEnabled(true);
+//                        }
+//                        if (mm == 4) {
+//                            p.mproveedor.setEnabled(true);
+//                        }
+//                        if (mm == 5) {
+//                            p.mventa.setEnabled(true);
+//                        }
+//                        if (mm == 6) {
+//                            p.mcompra.setEnabled(true);
+//
+//                        }
+//                        if (mm == 7) {
+//                            p.mcuenta.setEnabled(true);
+//                        }
+//                        if (mm == 8) {
+//                            p.mcaja.setEnabled(true);
+//                        }
+//                        if (mm == 9) {
+//                            p.mempresa.setEnabled(true);
+//                        }
+//                        if (mm == 10) {
+//                            p.mreporte.setEnabled(true);
+//                        }
+//                    }
+//                    p.jsaludo.setText(r.getString("nombre"));
+//                }
+//            }
+//
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

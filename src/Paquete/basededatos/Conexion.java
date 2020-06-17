@@ -12,7 +12,7 @@ public class Conexion {
     public static Connection getConnection() {
           try  {
               Class.forName("com.mysql.jdbc.Driver");
-              Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/bd_proyecto","root","");
+              Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/impacto","admin","admin.123");
               return con;
           }
           catch(Exception ex) {

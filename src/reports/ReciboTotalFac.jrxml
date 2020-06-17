@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="841" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b1cd6da8-b8ed-4ef6-ae1e-b84254b11a23">
+	<property name="ireport.zoom" value="1.4641000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="133"/>
+	<parameter name="id_recibo" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="numeros" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[Select idRecibos,monto,montototal,DATE_FORMAT(fecha,'%d/%m/%Y') AS feventa,fecha_recibo,nrofac,concat(nombre,apellido) AS nom,RUC from recibos,factura,cuentacorriente p,clientes where id_cliente=p.Clientes_id_cliente and id_factura=Factura_id_factura AND idCuentaCorriente=CuentaCorriente_idCuentaCorriente AND idRecibos=$P{id_recibo}]]>
+	</queryString>
+	<field name="idRecibos" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="monto" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="montototal" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="feventa" class="java.lang.String"/>
+	<field name="fecha_recibo" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nrofac" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nom" class="java.lang.String"/>
+	<field name="RUC" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="190" y="0" width="169" height="20" uuid="866e9658-66ed-4672-9b49-396a87834a62"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RECIBO DE DINERO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="432" splitType="Stretch">
+			<staticText>
+				<reportElement x="285" y="87" width="41" height="20" uuid="d231c605-5d79-42f1-8810-4af72e4f4a0e"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RUC:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="413" y="392" width="142" height="20" uuid="38b6cbe9-bcec-4f99-a8ef-0d26f72fa532"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[___________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="432" y="412" width="100" height="20" uuid="8cd78f46-9b7e-42fb-a338-466d647a8078"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Firma]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="139" width="100" height="20" uuid="e1aad146-ea2f-4f29-8aab-adcaee07f0bb"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[La Suma de]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="272" y="41" width="100" height="20" uuid="d9b06ecf-32a0-4329-9f26-ed01c9aca046"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="477" y="10" width="24" height="20" uuid="50a536c2-3c0d-46ae-b491-32664f9cb4cd"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N°:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="169" y="41" width="103" height="20" uuid="806e0544-237e-4083-9df9-4ac5a17d97d8"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[María Auxidialora,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="372" width="58" height="20" uuid="b0e91823-50cc-422a-a118-ac72c9f0673a"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Son Gs.:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="88" y="260" width="262" height="20" uuid="a5ee4970-5d46-4467-8964-f29fa84b62e0"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PAGO TOTAL FACTURA CREDITO NRO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="205" width="100" height="20" uuid="564157c3-504b-4cdd-852a-90e3617463d1"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[En concepto de:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="87" width="87" height="20" uuid="91dcee90-ac90-4688-ab04-273561361b94"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Recibimos de:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="501" y="10" width="54" height="20" uuid="1784f992-0474-4a95-87a4-5b216958a00e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idRecibos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="97" y="87" width="100" height="20" uuid="730cc3f7-5ef8-4526-a2c8-46bfe925f58d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="326" y="87" width="100" height="20" uuid="c16bb864-8a56-47fc-8382-b153ddf2ec24"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RUC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="92" y="174" width="100" height="20" uuid="48a0df6e-f279-4e46-a836-67c8023616d7"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{numeros}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="88" y="293" width="81" height="20" uuid="6c886f4f-d255-4784-98be-57893e5acfb8"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nrofac}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="169" y="293" width="81" height="20" uuid="df493f80-1861-4e25-8d51-edc924a1c77f"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montototal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="293" width="100" height="20" uuid="831a6ba6-c154-4f6a-ac2b-b31d495f0355"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{feventa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="97" y="372" width="100" height="20" uuid="05b4f47d-aead-409e-a8a4-515997855ddd"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{monto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+</jasperReport>

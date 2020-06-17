@@ -7,6 +7,7 @@ package Paquete.menu;
 
 import Paquete.cliente.agregar_cliente;
 import Paquete.cliente.listado_clientes;
+import Paquete.producto.listado_producto;
 
 /**
  *
@@ -56,7 +57,6 @@ public class principal extends javax.swing.JFrame {
         mreporte = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -78,7 +78,7 @@ public class principal extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jsaludo, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(433, Short.MAX_VALUE))
+                .addContainerGap(413, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,6 +109,7 @@ public class principal extends javax.swing.JFrame {
         jMenu1.setText("Inicio");
         jMenu1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem1.setText("Salir");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,9 +146,19 @@ public class principal extends javax.swing.JFrame {
         mproducto.setText("Productos");
 
         pagregar.setText("Agregar");
+        pagregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pagregarActionPerformed(evt);
+            }
+        });
         mproducto.add(pagregar);
 
         jMenuItem5.setText("Listar");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         mproducto.add(jMenuItem5);
 
         jMenuBar1.add(mproducto);
@@ -189,7 +200,10 @@ public class principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,6 +226,15 @@ public class principal extends javax.swing.JFrame {
     listado_clientes lista=new listado_clientes();
     lista.setVisible(true);
     }//GEN-LAST:event_jCheckBoxMenuItem2ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        listado_producto lista=new listado_producto();
+        lista.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void pagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pagregarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pagregarActionPerformed
 
     /**
      * @param args the command line arguments
